@@ -1,0 +1,13 @@
+D:\Webseiten\ioBroker\ioBroker\Core\bin\Debug\net6.0\Core.deps.json
+D:\Webseiten\ioBroker\ioBroker\Core\bin\Debug\net6.0\Core.dll
+D:\Webseiten\ioBroker\ioBroker\Core\bin\Debug\net6.0\ref\Core.dll
+D:\Webseiten\ioBroker\ioBroker\Core\bin\Debug\net6.0\Core.pdb
+D:\Webseiten\ioBroker\ioBroker\Core\obj\Debug\net6.0\Core.GlobalUsings.g.cs
+D:\Webseiten\ioBroker\ioBroker\Core\obj\Debug\net6.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\Webseiten\ioBroker\ioBroker\Core\obj\Debug\net6.0\Core.AssemblyInfoInputs.cache
+D:\Webseiten\ioBroker\ioBroker\Core\obj\Debug\net6.0\Core.AssemblyInfo.cs
+D:\Webseiten\ioBroker\ioBroker\Core\obj\Debug\net6.0\Core.csproj.CoreCompileInputs.cache
+D:\Webseiten\ioBroker\ioBroker\Core\obj\Debug\net6.0\Core.dll
+D:\Webseiten\ioBroker\ioBroker\Core\obj\Debug\net6.0\ref\Core.dll
+D:\Webseiten\ioBroker\ioBroker\Core\obj\Debug\net6.0\Core.pdb
+D:\Webseiten\ioBroker\ioBroker\Core\obj\Debug\net6.0\Core.csproj.AssemblyReference.cache
