@@ -17,8 +17,8 @@ export class DataPointsComponent implements OnInit {
 
   ngOnInit(): void {
     this.deviceService.getDataPoints()
-      .subscribe(result => {
-        this.devices = result;
+      .subscribe((response) => {
+        this.devices = response;
         this.totalDevices = this.devices.length;
       });
   }

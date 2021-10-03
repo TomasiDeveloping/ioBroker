@@ -9,10 +9,10 @@ namespace Core.Interfaces
 {
     public interface INumberEntriesRepository
     {
-        public Task<List<NumberEntriesDto>> GetEntriesById(int dataPointId);
-        public Task<List<NumberEntriesDto>> GetEntriesByIdAndParam(int dataPointId, int pageSize);
-        public Task<NumberEntriesDto> GetLastEntryById(int dataPointId);
-        public Task<NumberEntriesDto> UpdateEntry(NumberEntriesDto numberEntriesDto);
-        public Task<bool> DeleteEntryByIdAndTimeStamp(int dataPointId, DateTime timeStamp);
+        public Task<List<NumberEntriesDto>> GetEntriesByIdAsync(int dataPointId);
+        public Task<List<NumberEntriesDto>> GetEntriesByIdAndParamAsync(int dataPointId, int pageSize);
+        public Task<NumberEntriesDto> GetLastEntryByIdAsync(int dataPointId);
+        public Task<NumberEntriesDto> UpdateEntryAsync(NumberEntriesDto numberEntriesDto);
+        public Task<bool> DeleteEntryByIdAndTimeStampAsync(int dataPointId, DateTime timeStamp);
     }
 }

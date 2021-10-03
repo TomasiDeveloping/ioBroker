@@ -31,22 +31,22 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataPointService.getDataPoints()
-      .subscribe((result) => {
-        this.dataPoints = result;
+      .subscribe((response) => {
+        this.dataPoints = response;
       });
   }
 
   getNumberEntriesByIdAndParams(dataPoint: number, pageSize: number): void {
     this.numberEntryService.getEntriesByParamsAndId(dataPoint, pageSize)
-      .subscribe((result) => {
-        this.selectedEntries = result;
+      .subscribe((response) => {
+        this.selectedEntries = response;
       });
   }
 
   getStringEntriesByIdAndParams(dataPointId: number, pageSize: number): void {
     this.stringEntryService.getEntriesByIdAndParams(dataPointId, pageSize)
-      .subscribe((result) => {
-        this.selectedEntries = result;
+      .subscribe((response) => {
+        this.selectedEntries = response;
       });
   }
 
@@ -102,8 +102,8 @@ export class HomeComponent implements OnInit {
     switch (this.entryType) {
       case 0:
         this.numberEntryService.deleteEntry(entry as NumberEntryModel)
-          .subscribe((result) => {
-            console.log(result);
+          .subscribe((response) => {
+            console.log(response);
           });
         break;
       default:

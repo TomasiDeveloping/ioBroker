@@ -17,8 +17,8 @@ export class SourcesComponent implements OnInit {
 
   ngOnInit(): void {
     this.sourceService.getSources()
-      .subscribe((result) => {
-        this.sources = result;
+      .subscribe((response) => {
+        this.sources = response;
         this.totalSources = this.sources.length;
       });
   }

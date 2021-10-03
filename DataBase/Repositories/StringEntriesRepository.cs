@@ -17,17 +17,17 @@ namespace DataBase.Repositories
         {
             _context = context;
         }
-        public async Task<List<StringEntriesDto>> GetEntriesById(int dataPointId)
+        public async Task<List<StringEntriesDto>> GetEntriesByIdAsync(int dataPointId)
         {
             return await GetEntriesByParams(dataPointId);
         }
 
-        public Task<List<StringEntriesDto>> GetEntriesByIdAndParams(int dataPointId, int pageSize)
+        public Task<List<StringEntriesDto>> GetEntriesByIdAndParamsAsync(int dataPointId, int pageSize)
         {
             return GetEntriesByParams(dataPointId, pageSize);
         }
 
-        public async Task<StringEntriesDto> GetLastEntryById(int dataPointId)
+        public async Task<StringEntriesDto> GetLastEntryByIdAsync(int dataPointId)
         {
             var result = await GetEntriesByParams(dataPointId, 1);
             return result.FirstOrDefault(i => i.Id == dataPointId);

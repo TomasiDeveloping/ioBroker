@@ -18,24 +18,24 @@ namespace DataBase.Repositories
         {
             _context = context;
         }
-        public async Task<List<NumberEntriesDto>> GetEntriesById(int dataPointId)
+        public async Task<List<NumberEntriesDto>> GetEntriesByIdAsync(int dataPointId)
         {
             return await GetEntriesByParams(dataPointId);
         }
 
-        public async Task<List<NumberEntriesDto>> GetEntriesByIdAndParam(int dataPointId, int pageSize)
+        public async Task<List<NumberEntriesDto>> GetEntriesByIdAndParamAsync(int dataPointId, int pageSize)
         {
             var result = await GetEntriesByParams(dataPointId, pageSize);
             return result;
         }
 
-        public async Task<NumberEntriesDto> GetLastEntryById(int dataPointId)
+        public async Task<NumberEntriesDto> GetLastEntryByIdAsync(int dataPointId)
         {
             var result = await GetEntriesByParams(dataPointId, 1);
             return result.FirstOrDefault(i => i.Id == dataPointId);
         }
 
-        public async Task<NumberEntriesDto> UpdateEntry(NumberEntriesDto numberEntriesDto)
+        public async Task<NumberEntriesDto> UpdateEntryAsync(NumberEntriesDto numberEntriesDto)
         {
             var timeStamp = (long) numberEntriesDto.TimeStamp.ToUniversalTime().Subtract(
                 new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)
@@ -49,7 +49,7 @@ namespace DataBase.Repositories
             return numberEntriesDto;
         }
 
-        public async Task<bool> DeleteEntryByIdAndTimeStamp(int dataPointId, DateTime timeStamp)
+        public async Task<bool> DeleteEntryByIdAndTimeStampAsync(int dataPointId, DateTime timeStamp)
         {
             var ts = (long) timeStamp.ToUniversalTime().Subtract(
                 new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)

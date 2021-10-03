@@ -22,7 +22,7 @@ namespace Api.Controllers.v1
         [HttpGet("{dataPointId:int}")]
         public async Task<ActionResult<List<StringEntriesDto>>> GetEntriesById(int dataPointId)
         {
-            var result = await _stringEntriesRepository.GetEntriesById(dataPointId);
+            var result = await _stringEntriesRepository.GetEntriesByIdAsync(dataPointId);
             if (result.Count <= 0) return NoContent();
             return Ok(result);
         }
@@ -30,7 +30,7 @@ namespace Api.Controllers.v1
         [HttpGet("[action]/{dataPointId:int}")]
         public async Task<ActionResult<StringEntriesDto>> GetLastEntryById(int dataPointId)
         {
-            var result = await _stringEntriesRepository.GetLastEntryById(dataPointId);
+            var result = await _stringEntriesRepository.GetLastEntryByIdAsync(dataPointId);
             if (result == null) return NoContent();
             return Ok(result);
         }
@@ -39,7 +39,7 @@ namespace Api.Controllers.v1
         public async Task<ActionResult<List<StringEntriesDto>>> GetEntriesByIdAndParams(int dataPointId,
             [FromQuery] int pageSize)
         {
-            var result = await _stringEntriesRepository.GetEntriesByIdAndParams(dataPointId, pageSize);
+            var result = await _stringEntriesRepository.GetEntriesByIdAndParamsAsync(dataPointId, pageSize);
             if (result.Count <= 0) return NoContent();
             return Ok(result);
         }
