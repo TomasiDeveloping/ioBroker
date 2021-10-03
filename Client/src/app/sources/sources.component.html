@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Quellen: <span *ngIf="totalSources">({{totalSources}})</span></h1>
+  <div *ngIf="sources">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Adapter</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let source of sources">
+        <td>{{source.id}}</td>
+        <td>{{source.adapter}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

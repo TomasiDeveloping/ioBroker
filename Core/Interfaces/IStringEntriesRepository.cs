@@ -10,6 +10,7 @@ namespace Core.Interfaces
     public interface IStringEntriesRepository
     {
         public Task<List<StringEntriesDto>> GetEntriesById(int dataPointId);
+        public Task<List<StringEntriesDto>> GetEntriesByIdAndParams(int dataPointId, int pageSize); 
         public Task<StringEntriesDto> GetLastEntryById(int dataPointId);
     }
 }

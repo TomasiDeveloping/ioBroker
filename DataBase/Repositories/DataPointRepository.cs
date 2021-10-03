@@ -25,6 +25,7 @@ namespace DataBase.Repositories
                     Name = d.Name,
                     Type = d.Type
                 })
+                .OrderBy(x => x.Name)
                 .ToListAsync();
 
             if (dataPoints.Count <= 0) return dataPoints;

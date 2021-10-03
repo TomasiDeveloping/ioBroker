@@ -22,6 +22,11 @@ namespace DataBase.Repositories
             return await GetEntriesByParams(dataPointId);
         }
 
+        public Task<List<StringEntriesDto>> GetEntriesByIdAndParams(int dataPointId, int pageSize)
+        {
+            return GetEntriesByParams(dataPointId, pageSize);
+        }
+
         public async Task<StringEntriesDto> GetLastEntryById(int dataPointId)
         {
             var result = await GetEntriesByParams(dataPointId, 1);

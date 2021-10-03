@@ -34,5 +34,14 @@ namespace Api.Controllers.v1
             if (result == null) return NoContent();
             return Ok(result);
         }
+
+        [HttpGet("[action]/{dataPointId:int}")]
+        public async Task<ActionResult<List<StringEntriesDto>>> GetEntriesByIdAndParams(int dataPointId,
+            [FromQuery] int pageSize)
+        {
+            var result = await _stringEntriesRepository.GetEntriesByIdAndParams(dataPointId, pageSize);
+            if (result.Count <= 0) return NoContent();
+            return Ok(result);
+        }
     }
 }

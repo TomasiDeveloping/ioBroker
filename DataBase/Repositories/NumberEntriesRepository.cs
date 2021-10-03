@@ -23,10 +23,43 @@ namespace DataBase.Repositories
             return await GetEntriesByParams(dataPointId);
         }
 
+        public async Task<List<NumberEntriesDto>> GetEntriesByIdAndParam(int dataPointId, int pageSize)
+        {
+            var result = await GetEntriesByParams(dataPointId, pageSize);
+            return result;
+        }
+
         public async Task<NumberEntriesDto> GetLastEntryById(int dataPointId)
         {
             var result = await GetEntriesByParams(dataPointId, 1);
             return result.FirstOrDefault(i => i.Id == dataPointId);
+        }
+
+        public async Task<NumberEntriesDto> UpdateEntry(NumberEntriesDto numberEntriesDto)
+        {
+            var timeStamp = (long) numberEntriesDto.TimeStamp.ToUniversalTime().Subtract(
+                new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)
+            ).TotalMilliseconds;
+
+            var entryToUpdate = await _context.TsNumbers.FirstOrDefaultAsync(n =>
+                n.Id == numberEntriesDto.Id && n.Ts == timeStamp);
+            if (entryToUpdate == null) return null;
+
+            await _context.Database.ExecuteSqlInterpolatedAsync($"UPDATE [ioBroker].[dbo].[ts_number] SET val = {numberEntriesDto.Value} WHERE id = {numberEntriesDto.Id} AND ts = {timeStamp}");
+            return numberEntriesDto;
+        }
+
+        public async Task<bool> DeleteEntryByIdAndTimeStamp(int dataPointId, DateTime timeStamp)
+        {
+            var ts = (long) timeStamp.ToUniversalTime().Subtract(
+                new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)
+            ).TotalMilliseconds;
+
+            var entryToDelete = await _context.TsNumbers.FirstOrDefaultAsync(n => n.Id == dataPointId && n.Ts == ts);
+            if (entryToDelete == null) return false;
+
+            await _context.Database.ExecuteSqlInterpolatedAsync($"DELETE FROM [ioBroker].[dbo].[ts_number] WHERE id ={dataPointId} AND ts={ts}");
+            return true;
         }
 
         private async Task<List<NumberEntriesDto>> GetEntriesByParams(int id = 0, int take = 0)

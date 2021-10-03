@@ -1,0 +1,59 @@
+<div class="container">
+  <h1>Home</h1>
+  <div class="form-group">
+    <label class="mt-2" for="dataPoints">Datenpunkt</label>
+    <select (ngModelChange)="dataPointChange($event)" [(ngModel)]="selectedDataPoint" class="form-select mb-4"
+            id="dataPoints">
+      <option *ngFor="let dataPoint of dataPoints" [ngValue]="dataPoint">{{dataPoint.name}}</option>
+    </select>
+    <label for="quantity">Letzten</label>
+    <select (ngModelChange)="pageSizeChange($event)" [(ngModel)]="pageSize" class="form-select mb-4" id="quantity">
+      <option *ngFor="let size of pageSizeOptions">{{size}}</option>
+    </select>
+  </div>
+  <table *ngIf="selectedEntries" class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Quelle</th>
+      <th scope="col">Datenpunkt</th>
+      <th scope="col">Wert</th>
+      <th scope="col">Zeit</th>
+      <th scope="col">Aktion</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let entry of selectedEntries">
+      <td>{{entry.id}}</td>
+      <td>{{entry.adapterName}}</td>
+      <td>{{entry.dataPointName}}</td>
+      <td>{{entry.value}}</td>
+      <td>{{entry.timeStamp | date: 'dd.MM.yyyy HH:mm:ss'}}</td>
+      <td>
+        <button (click)="onEditEntry(entry)" class="btn btn-primary">Bearbeiten</button>
+        <button (click)="onDeleteEntry(entry)" class="btn btn-danger ms-2">Löschen</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Bearbeiten</h4>
+      <button (click)="modal.dismiss()" aria-label="Close" class="btn-close" type="button"></button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="value">Wert</label>
+          <div class="input-group">
+            <input [(ngModel)]="selectedEntry.value" class="form-control" id="value" name="value" placeholder="Wert">
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button (click)="onSaveEdit()" class="btn btn-success" type="button">Speichern</button>
+    </div>
+  </ng-template>
+</div>

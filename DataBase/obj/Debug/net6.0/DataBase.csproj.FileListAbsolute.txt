@@ -11,8 +11,8 @@ D:\Webseiten\ioBroker\ioBroker\DataBase\obj\Debug\net6.0\DataBase.GeneratedMSBui
 D:\Webseiten\ioBroker\ioBroker\DataBase\obj\Debug\net6.0\DataBase.AssemblyInfoInputs.cache
 D:\Webseiten\ioBroker\ioBroker\DataBase\obj\Debug\net6.0\DataBase.AssemblyInfo.cs
 D:\Webseiten\ioBroker\ioBroker\DataBase\obj\Debug\net6.0\DataBase.csproj.CoreCompileInputs.cache
+D:\Webseiten\ioBroker\ioBroker\DataBase\obj\Debug\net6.0\DataBase.csproj.CopyComplete
 D:\Webseiten\ioBroker\ioBroker\DataBase\obj\Debug\net6.0\DataBase.dll
 D:\Webseiten\ioBroker\ioBroker\DataBase\obj\Debug\net6.0\ref\DataBase.dll
 D:\Webseiten\ioBroker\ioBroker\DataBase\obj\Debug\net6.0\DataBase.pdb
 D:\Webseiten\ioBroker\ioBroker\DataBase\obj\Debug\net6.0\DataBase.genruntimeconfig.cache
-D:\Webseiten\ioBroker\ioBroker\DataBase\obj\Debug\net6.0\DataBase.csproj.CopyComplete
